@@ -132,3 +132,4 @@ dmypy.json
 # Other
 .pdf
 .docx
+.csv

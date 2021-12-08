@@ -38,15 +38,15 @@ plt.show()
 # Vocals recorded with the following order e\ a\ o\  ii\
 # It seems that a and o are very close, but magnitude and frequency of e is significant lower
 # Also i has very high frequency but too low magnitude
-Voice = voice.flatten()
+Voice = voice.flatten()  # formatting Voice 2-D array to numpy 1-D array
 print(Voice)
-freq, t, Sxx = signal.spectrogram(Voice, Fs)
+freq, t, stft = signal.spectrogram(Voice, Fs, mode='complex')
 #Sxx, freq, t = plt.specgram(Voice, Fs=Fs, mode='magnitude')
-print(Sxx)
+print(stft)
 print(freq)
 print(t)
-plt.pcolormesh(t, freq, Sxx, shading='gouraud')
-plt.title('Spectrogramm using Power spectral density')
+plt.pcolormesh(t, freq, abs(stft), shading='gouraud')
+plt.title('Spectrogramm using STFT amplitude')
 plt.ylabel('Frequency [Hz]')
 plt.xlabel('Time [seconds]')
 plt.show()

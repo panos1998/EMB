@@ -8,7 +8,6 @@ duration = 5  # Recording duration in seconds
 voice = sd.rec(frames=duration * Fs, samplerate=Fs, channels=1, dtype='int16')  # Capture the voice
 # frames indicate  indirectly the duration of record, dtype is 16 bits per sample.
 sd.wait()  # close after recording finish
-
 time = np.linspace(0, len(voice - 1) / Fs, len(voice - 1))  # split x axis in voice-1 points
 # points have 1/Fs distance each other
 plt.plot(voice)
@@ -39,16 +38,14 @@ plt.show()
 # Vocals recorded with the following order e\ a\ o\  ii\
 # It seems that a and o are very close, but magnitude and frequency of e is significant lower
 # Also i has very high frequency but too low magnitude
-
-
-
-#freq, t, Sxx = signal.spectrogram(voice, 1000, nperseg=1)
-#print(freq)
-#print(t)
-#print(Sxx)
-#print(len(Sxx))
-#print(len(Sxx[0]))
-#plt.pcolormesh(t, freq, Sxx, shading='gouraud')
-#plt.ylabel('Frequency [Hz]')
-#plt.xlabel('Time [seconds]')
-#plt.show()
+Voice = voice.flatten()
+print(Voice)
+freq, t, Sxx = signal.spectrogram(Voice, Fs)
+#Sxx, freq, t = plt.specgram(Voice, Fs=Fs, mode='magnitude')
+print(Sxx)
+print(freq)
+print(t)
+plt.pcolormesh(t, freq, Sxx, shading='gouraud')
+plt.ylabel('Frequency [Hz]')
+plt.xlabel('Time [seconds]')
+plt.show()

@@ -1,7 +1,8 @@
 import matplotlib.pyplot as plt
 import numpy as np
+import scipy.fft
 import sounddevice as sd
-from scipy import signal
+from scipy import signal, fft
 
 Fs = 8000  # Sampling frequency
 duration = 5  # Recording duration in seconds
@@ -28,13 +29,16 @@ plt.show()
 
 N = len(voice)
 # Fourier transform
-F = np.fft.fft(voice)
+F = scipy.fft.fft(voice) / N
+F = fft.fftshift(F)
 #f = np.linspace(0, Fs - Fs / N, N)
-f = np.fft.fftfreq(n=len(F), d=1 / 8000)
+f = fft.fftfreq(n=N, d=1 / Fs)
+f = fft.fftshift(f)
+#f = np.linspace(0, 4000, N//2)
 plt.plot(f, abs(F))
 plt.title("FFT of the signal")
 plt.xlabel('Frequency')
-plt.ylabel('Signal Amplitude')
+plt.ylabel('Power of Frequency')
 plt.show()
 # Vocals recorded with the following order e\ a\ o\  ii\
 # It seems that a and o are very close, but magnitude and frequency of e is significant lower

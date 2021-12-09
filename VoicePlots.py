@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.fft
-from scipy import signal, fft
+from scipy import signal
 
 
 def time_plot(data, frequency):

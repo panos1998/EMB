@@ -11,17 +11,17 @@ voice = sd.rec(frames=duration * Fs, samplerate=Fs, channels=1, dtype='int16')  
 sd.wait()  # close after recording finish
 time = np.linspace(0, len(voice - 1) / Fs, len(voice - 1))  # split x axis in voice-1 points
 # points have 1/Fs distance each other
-plt.plot(voice)
+plt.plot(voice / len(voice))
 plt.ylabel('Voice amplitude')
 plt.xlabel('No of sample')
 plt.title("Voice Signal with respect to sample number")
 plt.show()
-plt.plot(time, voice)  # plot in seconds
+plt.plot(time, voice / len(voice))  # plot in seconds
 plt.title("Voice Signal")
 plt.xlabel("Time [seconds]")
 plt.ylabel("Voice amplitude")
 plt.show()
-plt.plot((10**3)*time, voice)  # plot in milliseconds
+plt.plot((10**3)*time, voice / len(voice))  # plot in milliseconds
 plt.title("Voice Signal")
 plt.xlabel("Time [milliseconds]")
 plt.ylabel("Voice amplitude")

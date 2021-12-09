@@ -1,14 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import scipy.fft
-import sounddevice as sd
 from scipy import signal, fft
-
-Fs = 8000  # Sampling frequency
-duration = 5  # Recording duration in seconds
-voice = sd.rec(frames=duration * Fs, samplerate=Fs, channels=1, dtype='int16')  # Capture the voice
-# frames indicate  indirectly the duration of record, dtype is 16 bits per sample.
-sd.wait()  # close after recording finish
 
 
 def time_plot(data, frequency):
@@ -25,7 +18,7 @@ def time_plot(data, frequency):
     plt.xlabel("Time [seconds]")
     plt.ylabel("Voice amplitude")
     plt.show()
-    plt.plot((10**3)*time, voice / N)  # plot in milliseconds
+    plt.plot((10**3)*time, data / N)  # plot in milliseconds
     plt.title("Voice Signal")
     plt.xlabel("Time [milliseconds]")
     plt.ylabel("Voice amplitude")
@@ -57,8 +50,3 @@ def spectrogram_plot(data, frequency):
     plt.xlabel('Time [seconds]')
     plt.colorbar()
     plt.show()
-
-
-time_plot(voice, Fs)
-fourier_plot(voice, Fs)
-spectrogram_plot(voice, Fs)

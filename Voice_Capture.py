@@ -30,12 +30,10 @@ plt.show()
 N = len(voice)
 # Fourier transform
 F = scipy.fft.fft(voice) / N
-F = fft.fftshift(F)
 #f = np.linspace(0, Fs - Fs / N, N)
-f = fft.fftfreq(n=N, d=1 / Fs)
-f = fft.fftshift(f)
+f = fft.fftfreq(n=N, d=1 / Fs)[:N // 2]
 #f = np.linspace(0, 4000, N//2)
-plt.plot(f, abs(F))
+plt.plot(f, abs(F[0:N // 2]))
 plt.title("FFT of the signal")
 plt.xlabel('Frequency')
 plt.ylabel('Power of Frequency')

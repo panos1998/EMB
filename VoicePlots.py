@@ -8,21 +8,19 @@ def time_plot(data, frequency):
     N = len(data)
     time = np.linspace(0, N / frequency, N)  # split x axis in voice-1 points
     # points have 1/Fs distance each other
-    plt.plot(data / N)
-    plt.ylabel('Voice amplitude')
-    plt.xlabel('No of sample')
-    plt.title("Voice Signal with respect to sample number")
-    plt.show()
-    plt.plot(time, data / N)  # plot in seconds
-    plt.title("Voice Signal")
-    plt.xlabel("Time [seconds]")
-    plt.ylabel("Voice amplitude")
-    plt.show()
-    plt.plot((10**3)*time, data / N)  # plot in milliseconds
-    plt.title("Voice Signal")
-    plt.xlabel("Time [milliseconds]")
-    plt.ylabel("Voice amplitude")
-    plt.show()
+    fig, ((axs2, axs4),(axs3, axs1)) = plt.subplots(2, 2)
+    fig.suptitle('Time domain and sample domain plots')
+    axs1.plot(data / N)
+    axs1.label_outer()
+    axs1.set_xlabel('No of sample')
+    axs2.set_ylabel('Voice amplitude')
+    axs2.plot(time, data / N)  # plot in seconds
+    axs3.plot((10**3)*time, data / N)  # plot in milliseconds
+    axs3.set_ylabel('Voice Amplitude')
+    axs3.set_xlabel("Time")
+    axs4.label_outer()
+    fig.delaxes(axs4)
+    fig.show()
 
 
 def fourier_plot(data, frequency):

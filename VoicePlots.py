@@ -18,7 +18,6 @@ def time_plot(data, frequency):
     axs3.plot((10**3)*time, data / N)  # plot in milliseconds
     axs3.set_ylabel('Voice Amplitude')
     axs3.set_xlabel("Time")
-    axs4.label_outer()
     fig.delaxes(axs4)
     fig.show()
 

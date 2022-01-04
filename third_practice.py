@@ -23,10 +23,10 @@ def time_plot(data: List, frequency: int, index: int = 0) -> None:
 
 # function to plot a list of fourrier transform in frequency domain
 def fourier_plot(signal: List, frequency: int, index: int) -> None:
-    fouriers.append(fft.fft(signal)) # calculate fourier transform of the input signal
-    fourier_mag = abs(fouriers[index]) # calculate the corresponding fourier magnitude of all coeffs
-    freqs.append(np.linspace(0, Fs, len(signal) // 2)) # split frequencies axis
-    plt.plot(freqs[index], fourier_mag[0:len(signal) // 2]) # plot the data
+    fourier_transforms.append(fft.fft(signal)) # calculate fourier transform of the input signal
+    fourier_mag = abs(fourier_transforms[index]) # calculate the corresponding fourier magnitude of all coeffs
+    frequencies.append(np.linspace(0, Fs, len(signal) // 2)) # split frequencies axis
+    plt.plot(frequencies[index], fourier_mag[0:len(signal) // 2]) # plot the data
     plt.title(f'Fourrier of signal: {index + 1}')
     plt.xlabel('frequency in Hz')
     plt.ylabel('Fourier magnitude ')
@@ -40,8 +40,8 @@ for signal in signal_list:
     time_plot(signal, Fs, index=i)  # plot each signal
     i += 1
 
-fouriers = []  # initialize fourier list
-freqs = []  # initialize frequencies list
+fourier_transforms = []  # initialize fourier list
+frequencies = []  # initialize frequencies list
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain
 for signal in signal_list:

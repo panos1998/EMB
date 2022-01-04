@@ -19,8 +19,8 @@ def data_formatting(data_path: str) -> Tuple[List, int]:
     data = loadmat(data_path) # load data from path
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
     list_signal = []  # initialize signal list
-    for i in range(len(data['x'][0])): # reformat data
-        list_signal.append([points[i] for points in data['x']])  # this list contains 10 lists
+    for j in range(len(data['x'][0])): # reformat data
+        list_signal.append([points[j] for points in data['x']])  # this list contains 10 lists
     return list_signal, sampling_frequency  # of 38080 values
 
 # function to plot a list of data in time domain
@@ -39,19 +39,19 @@ def time_plot(data: List, frequency: int, index: int = 0) -> None:
 
 
 # function to plot a list of fourrier transform in frequency domain
-def fourier_plot(signal: List, frequency: int, index: int) -> None:
+def fourier_plot(signal_data: List, frequency: int, index: int) -> None:
     """
-    :param signal: the signal data
+    :param signal_data: the signal data
     :param frequency: the sampling frequency
     :param index: iterator for each signal
     :return:
     """
     # calculate fourier transform of the input signal
-    fourier_transforms.append(fft.fft(signal))
+    fourier_transforms.append(fft.fft(signal_data))
     # calculate the corresponding fourier magnitude
     fourier_mag = abs(fourier_transforms[index])  # of all coeffs
-    frequencies.append(np.linspace(0, frequency, len(signal) // 2)) # split frequencies axis
-    plt.plot(frequencies[index], fourier_mag[0:len(signal) // 2]) # plot the data
+    frequencies.append(np.linspace(0, frequency, len(signal_data) // 2)) # split frequencies axis
+    plt.plot(frequencies[index], fourier_mag[0:len(signal_data) // 2]) # plot the data
     plt.title(f'Fourrier of signal: {index + 1}')
     plt.xlabel('frequency in Hz')
     plt.ylabel('Fourier magnitude ')

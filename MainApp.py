@@ -1,3 +1,6 @@
+"""
+import soundevice and VoicePlots class
+"""
 import VoicePlots as vplt
 import sounddevice as sd
 

@@ -1,3 +1,6 @@
+"""
+Import typing, numpy, matplotlib scipy
+"""
 from typing import List, Tuple
 import numpy as np
 import matplotlib.pyplot as plt

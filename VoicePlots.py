@@ -1,3 +1,6 @@
+"""
+Ploting functions
+"""
 from typing import List
 import numpy as np
 import matplotlib.pyplot as plt
@@ -5,7 +8,6 @@ from scipy import signal
 import scipy.fft
 
 # plot signal in time domain
-
 def time_plot(data: List, frequency: int):
     """
     :param data: data points

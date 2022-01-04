@@ -1,3 +1,6 @@
+"""
+Import ecgdetectors, hrv, numpy, matplotlib scipy
+"""
 import matplotlib.pyplot as plt
 import scipy.io
 from ecgdetectors import Detectors

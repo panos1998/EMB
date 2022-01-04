@@ -10,10 +10,10 @@ import scipy.fft as fft
 def data_formatting(data_path: str) -> Tuple[List, int]:
     data = loadmat(data_path) # load data from path
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
-    signal_list = [] # initialize signal list
+    signal_list = []  # initialize signal list
     for i in range(len(data['x'][0])): # reformat data
-        signal_list.append([points[i] for points in data['x']])  # this list contains 10 lists
-                                                                 # of 38080 values
+        signal_list.append([points[i] for points in data['x']])  # this list contains 10 lists # of 38080 values
+
     return signal_list, sampling_frequency
 
 
@@ -39,8 +39,8 @@ def fourier_plot(signal: List, frequency: int, index: int) -> None:
     plt.show()
 
 
-signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list
-                                                    # and sampling frequency
+signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list  # and sampling frequency
+
 
 i = 0 # index iterator
 # plot all signals in time domain
@@ -56,3 +56,4 @@ i = 0 # index iterator
 for signal in signal_list:
     fourier_plot(signal, Fs, index=i)
     i += 1
+

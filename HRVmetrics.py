@@ -1,6 +1,6 @@
 import scipy.io
 import numpy as np
-import  matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 from ecgdetectors import Detectors
 import hrv
 dict_data = scipy.io.loadmat(r"C:\Users\Πανος\Documents\GitHub\EMB\MLII\17 PR\107m (0).mat")

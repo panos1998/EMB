@@ -34,8 +34,8 @@ def fourier_plot(signal: List, frequency: int, index: int) -> None:
     plt.show()
 
 
-signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list  # and sampling frequency
-
+signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list
+# and sampling frequency
 i = 0 # index iterator
 # plot all signals in time domain
 for signal in signal_list:

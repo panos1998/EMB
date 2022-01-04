@@ -40,7 +40,8 @@ def fourier_plot(data, frequency):
 # function to plot a spectrogramm
 def spectrogram_plot(data, frequency):
     data = data.flatten()  # take the signal data
-    freq, t, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies, time and stfourrier
+    freq, t, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
+    # time and stfourrier
     plt.pcolormesh(t, freq, abs(stft), cmap='magma', shading='gouraud')  # plot the spectrogramm
     plt.title('Spectrogram using STFT amplitude')
     plt.ylabel('Frequency [Hz]')

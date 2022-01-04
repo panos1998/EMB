@@ -1,8 +1,8 @@
-import matplotlib.pyplot as plt
-import numpy as np
-import scipy.fft
-from scipy import signal
 from typing import List
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy import signal
+import scipy.fft
 
 # plot signal in time domain
 

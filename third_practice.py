@@ -1,8 +1,13 @@
 from typing import List, Tuple
-from scipy.io import loadmat
 import numpy as np
 import matplotlib.pyplot as plt
 import scipy.fft as fft
+from scipy.io import loadmat
+
+
+
+
+
 
 # function to reformat data
 def data_formatting(data_path: str) -> Tuple[List, int]:

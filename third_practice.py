@@ -6,7 +6,6 @@ import scipy.fft as fft
 
 # function to reformat data
 
-
 def data_formatting(data_path: str) -> Tuple[List, int]:
     data = loadmat(data_path) # load data from path
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
@@ -16,9 +15,7 @@ def data_formatting(data_path: str) -> Tuple[List, int]:
 
     return signal_list, sampling_frequency
 
-
 # function to plot a list of data in time domain
-
 def time_plot(data: List, frequency: int, index: int = 0) -> None:
     time = np.linspace(0, (len(data)) / frequency, len(data)) # split time axis
     plt.plot(time, data) # plot data
@@ -27,7 +24,6 @@ def time_plot(data: List, frequency: int, index: int = 0) -> None:
 
 
 # function to plot a list of fourrier transform in frequency domain
-
 def fourier_plot(signal: List, frequency: int, index: int) -> None:
     fouriers.append(fft.fft(signal)) # calculate fourier transform of the input signal
     fourier_mag = abs(fouriers[index]) # calculate the corresponding fourier magnitude of all coeffs
@@ -41,7 +37,6 @@ def fourier_plot(signal: List, frequency: int, index: int) -> None:
 
 signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list  # and sampling frequency
 
-
 i = 0 # index iterator
 # plot all signals in time domain
 for signal in signal_list:
@@ -49,7 +44,7 @@ for signal in signal_list:
     i += 1
 
 fouriers = []  # initialize fourier list
-freqs = [] # initialize frequencies list
+freqs = []  # initialize frequencies list
 
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain

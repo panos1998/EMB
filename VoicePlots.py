@@ -5,7 +5,6 @@ from scipy import signal
 
 # plot signal in time domain
 
-
 def time_plot(data, frequency):
     N = len(data) # get signal size
     time = np.linspace(0, N / frequency, N)  # split x axis in voice-1 points
@@ -23,7 +22,6 @@ def time_plot(data, frequency):
     fig.delaxes(axs4)
     fig.show()
 
-
 def fourier_plot(data, frequency):
     N = len(data)  # get data size
     data = data.flatten()  # get appropriate input
@@ -40,8 +38,6 @@ def fourier_plot(data, frequency):
     # Also i has very high frequency but too low magnitude
 
 # function to plot a spectrogramm
-
-
 def spectrogram_plot(data, frequency):
     data = data.flatten()  # take the signal data
     freq, t, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies, time and stfourrier

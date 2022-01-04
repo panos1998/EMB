@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 import scipy.fft as fft
 
 # function to reformat data
-
 def data_formatting(data_path: str) -> Tuple[List, int]:
     data = loadmat(data_path) # load data from path
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
@@ -33,7 +32,6 @@ def fourier_plot(signal: List, frequency: int, index: int) -> None:
     plt.ylabel('Fourier magnitude ')
     plt.show()
 
-
 signal_list, Fs = data_formatting(r'voice_data.mat')  # extract formatted signal list
 # and sampling frequency
 i = 0 # index iterator
@@ -44,7 +42,6 @@ for signal in signal_list:
 
 fouriers = []  # initialize fourier list
 freqs = []  # initialize frequencies list
-
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain
 for signal in signal_list:

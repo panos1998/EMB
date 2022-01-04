@@ -11,9 +11,8 @@ def data_formatting(data_path: str) -> Tuple[List, int]:
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
     signal_list = []  # initialize signal list
     for i in range(len(data['x'][0])): # reformat data
-        signal_list.append([points[i] for points in data['x']])  # this list contains 10 lists # of 38080 values
-
-    return signal_list, sampling_frequency
+        signal_list.append([points[i] for points in data['x']])  # this list contains 10 lists
+    return signal_list, sampling_frequency  # of 38080 values
 
 # function to plot a list of data in time domain
 def time_plot(data: List, frequency: int, index: int = 0) -> None:

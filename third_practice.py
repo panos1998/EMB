@@ -47,4 +47,3 @@ i = 0 # index iterator
 for signal in signal_list:
     fourier_plot(signal, Fs, index=i)
     i += 1
-

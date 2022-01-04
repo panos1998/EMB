@@ -7,6 +7,11 @@ import scipy.fft
 # plot signal in time domain
 
 def time_plot(data: List, frequency: int):
+    """
+    :param data: data points
+    :param frequency: samping frequency
+    :return:
+    """
     data_points_size = len(data) # get signal size
     # split x axis in voice-1 points
     time = np.linspace(0, data_points_size / frequency, data_points_size)
@@ -26,6 +31,12 @@ def time_plot(data: List, frequency: int):
     fig.show()
 
 def fourier_plot(data: List, frequency: int):
+    """
+    plots the fourier transform
+    :param data: data points
+    :param frequency:  samping frequency
+    :return:
+    """
     number_of_samples = len(data)  # get data size
     data = data.flatten()  # get appropriate input
     # Fourier transform
@@ -43,6 +54,12 @@ def fourier_plot(data: List, frequency: int):
 
 # function to plot a spectrogramm
 def spectrogram_plot(data: List[List], frequency: int) -> None:
+    """
+    plots  the spectrogramm
+    :param data: data points
+    :param frequency: sampling frequency
+    :return:
+    """
     data = data.flatten()  # take the signal data
     freq, t, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
     # time and stfourrier

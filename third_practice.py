@@ -6,6 +6,13 @@ from scipy.io import loadmat
 
 # function to reformat data
 def data_formatting(data_path: str) -> Tuple[List, int]:
+    """
+    Parameters:
+        data_path: str
+        the path of file to format
+    Returns:
+        a tuple of signals and the sampling frequency
+    """
     data = loadmat(data_path) # load data from path
     sampling_frequency = data['Fs'][0][0] # extract sampling frequency
     signal_list = []  # initialize signal list
@@ -15,6 +22,13 @@ def data_formatting(data_path: str) -> Tuple[List, int]:
 
 # function to plot a list of data in time domain
 def time_plot(data: List, frequency: int, index: int = 0) -> None:
+    """
+
+    :param data: the list with data to plot
+    :param frequency: the samping frequency value
+    :param index: iterator for each signal
+    :return: nothing
+    """
     time = np.linspace(0, (len(data)) / frequency, len(data)) # split time axis
     plt.plot(time, data) # plot data
     plt.title(f' Number of signal {index + 1}')
@@ -23,6 +37,12 @@ def time_plot(data: List, frequency: int, index: int = 0) -> None:
 
 # function to plot a list of fourrier transform in frequency domain
 def fourier_plot(signal: List, frequency: int, index: int) -> None:
+    """
+    :param signal: the signal data
+    :param frequency: the sampling frequency
+    :param index: iterator for each signal
+    :return:
+    """
     # calculate fourier transform of the input signal
     fourier_transforms.append(fft.fft(signal))
     # calculate the corresponding fourier magnitude

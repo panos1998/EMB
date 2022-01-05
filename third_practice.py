@@ -12,7 +12,6 @@ i = 0 # index iterator
 for signal in data:
     time_plot(signal, FREQUENCY, index=i)  # plot each signal
     i += 1
-
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain
 for signal in data:

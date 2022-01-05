@@ -29,7 +29,6 @@ def time_plot(data: List, frequency: int):
     axs3.set_xlabel("Time") # add a label for x
     fig.delaxes(axs4)
     fig.show()
-
 def fourier_plot(data: List, frequency: int):
     """
     plots the fourier transform

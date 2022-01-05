@@ -65,8 +65,8 @@ def spectrogram_plot(data: List[List], frequency: int) -> None:
     freq, time, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
     # time and stfourrier
     plt.pcolormesh(time, freq, abs(stft), cmap='magma', shading='gouraud')  # plot the spectrogramm
-    plt.title('Spectrogram using STFT amplitude') # add a title
-    plt.ylabel('Frequency [Hz]')  # add a label for y
-    plt.xlabel('Time [seconds]') # add a label for x
+    plt.title('Spectrogram using STFT amplitude')
+    plt.ylabel('Frequency [Hz]')
+    plt.xlabel('Time [seconds]')
     plt.colorbar()
     plt.show()

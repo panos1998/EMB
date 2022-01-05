@@ -7,7 +7,6 @@ from scipy import signal
 import scipy.fft
 
 # plot signal in time domain
-
 def time_plot(data: List, frequency: int):
     """
     :param data: data points
@@ -55,7 +54,6 @@ def fourier_plot(data: List, frequency: int):
     # Also i has very high frequency but too low magnitude
 
 # function to plot a spectrogramm
-
 def spectrogram_plot(data: List[List], frequency: int) -> None:
     """
     plots  the spectrogramm

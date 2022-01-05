@@ -5,7 +5,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy import signal
 import scipy.fft
-
 # plot signal in time domain
 def time_plot(data: List, frequency: int):
     """
@@ -52,7 +51,6 @@ def fourier_plot(data: List, frequency: int):
     # Vocals recorded with the following order e\ a\ o\  ii\
     # It seems that a and o are very close, but magnitude and frequency of e is significant lower
     # Also i has very high frequency but too low magnitude
-
 # function to plot a spectrogramm
 def spectrogram_plot(data: List[List], frequency: int) -> None:
     """

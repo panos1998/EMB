@@ -3,7 +3,6 @@ import soundevice and VoicePlots class
 """
 import VoicePlots as vplt
 import sounddevice as sd
-
 FREQ = 8000  # Sampling frequency
 DURATION = 5  # Recording duration in seconds
 # Capture the voice

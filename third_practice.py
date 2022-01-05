@@ -4,7 +4,6 @@ Import typing, numpy, matplotlib scipy
 from fourier_plot import fourier_plot
 from data_processing import data_formatting
 from time_plot import time_plot
-
 # extract formatted signal list
 data, FREQUENCY = data_formatting(r'voice_data.mat')
 # and sampling frequency

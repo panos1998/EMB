@@ -19,15 +19,15 @@ def time_plot(data: List, frequency: int):
     # points have 1/Fs distance each other
     # create subplots and create the given diagramms
     fig, ((axs2, axs4),(axs3, axs1)) = plt.subplots(2, 2)
-    fig.suptitle('Time domain and sample domain plots')
+    fig.suptitle('Time domain and sample domain plots') # add a title
     axs1.plot(data / data_points_size)
     axs1.label_outer()
-    axs1.set_xlabel('No of sample')
-    axs2.set_ylabel('Voice amplitude')
+    axs1.set_xlabel('No of sample') # add a label for x
+    axs2.set_ylabel('Voice amplitude')  # add a label for y
     axs2.plot(time, data / data_points_size)  # plot in seconds
     axs3.plot((10**3)*time, data / data_points_size)  # plot in milliseconds
-    axs3.set_ylabel('Voice Amplitude')
-    axs3.set_xlabel("Time")
+    axs3.set_ylabel('Voice Amplitude')  # add a label for y
+    axs3.set_xlabel("Time") # add a label for x
     fig.delaxes(axs4)
     fig.show()
 
@@ -45,9 +45,9 @@ def fourier_plot(data: List, frequency: int):
     frequencypoints = np.linspace(0, frequency, number_of_samples//2)  # split frequencies axis
     # plot the fourier for non negative frequencies (first half of signal)
     plt.plot(frequencypoints, abs(fouriervalues[0:number_of_samples // 2]))
-    plt.title("FFT of the signal")
-    plt.xlabel('Frequency')
-    plt.ylabel('Power of Frequency')
+    plt.title("FFT of the signal") # add a title
+    plt.xlabel('Frequency') # add a label for x
+    plt.ylabel('Power of Frequency')  # add a label for y
     plt.show()
     # Vocals recorded with the following order e\ a\ o\  ii\
     # It seems that a and o are very close, but magnitude and frequency of e is significant lower
@@ -65,8 +65,8 @@ def spectrogram_plot(data: List[List], frequency: int) -> None:
     freq, time, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
     # time and stfourrier
     plt.pcolormesh(time, freq, abs(stft), cmap='magma', shading='gouraud')  # plot the spectrogramm
-    plt.title('Spectrogram using STFT amplitude')
-    plt.ylabel('Frequency [Hz]')
-    plt.xlabel('Time [seconds]')
+    plt.title('Spectrogram using STFT amplitude') # add a title
+    plt.ylabel('Frequency [Hz]')  # add a label for y
+    plt.xlabel('Time [seconds]') # add a label for x
     plt.colorbar()
     plt.show()

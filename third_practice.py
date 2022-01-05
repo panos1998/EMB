@@ -17,5 +17,5 @@ for signal in data:
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain
 for signal in data:
-    fourier_plot(signal, FREQUENCY, index=i)
+    fourier_plot(signal, FREQUENCY, index=i) # plot the fourier
     i += 1

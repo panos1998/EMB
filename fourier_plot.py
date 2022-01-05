@@ -24,7 +24,7 @@ def fourier_plot(signal_data: List, frequency: int, index: int) -> None:
     frequencies_of_partitions.append(np.linspace(0, frequency, len(signal_data) // 2))
     # plot the data
     plt.plot(frequencies_of_partitions[index], fourier_mag[0:len(signal_data) // 2])
-    plt.title(f'Fourrier of signal: {index + 1}')
-    plt.xlabel('frequency in Hz')
-    plt.ylabel('Fourier magnitude ')
-    plt.show()
+    plt.title(f'Fourrier of signal: {index + 1}') # add a title
+    plt.xlabel('frequency in Hz') # add a label for x
+    plt.ylabel('Fourier magnitude ') # add a label for y
+    plt.show() # show the plot

@@ -14,11 +14,11 @@ hr = hrv.HRV(360)  # Initialize a hrv.HRV class with sampling frequency
 heartratevariability = hr.HR(rr_samples=rpeaks)
 print(heartratevariability)
 plt.figure()
-plt.plot(data)
-plt.plot(rpeaks, data[rpeaks], 'ro')
-plt.show()
-plt.title('Heart rate variability')
-plt.ylabel('Interval Seconds')
-plt.xlabel('Sample')
-plt.plot(heartratevariability)
-plt.show()
+plt.plot(data) # plot data
+plt.plot(rpeaks, data[rpeaks], 'ro') # plot rpeaks
+plt.show() # show the plot
+plt.title('Heart rate variability') # add a title
+plt.ylabel('Interval Seconds') # add a y label
+plt.xlabel('Sample') # add a label for xs
+plt.plot(heartratevariability) # plot hrv
+plt.show()  # show the plot

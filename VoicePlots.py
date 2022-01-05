@@ -42,9 +42,9 @@ def fourier_plot(data: List, frequency: int):
     data = data.flatten()  # get appropriate input
     # Fourier transform
     fouriervalues = scipy.fft.fft(data) / number_of_samples  # calculate fourier transform
-    frequencyPoints = np.linspace(0, frequency, number_of_samples//2)  # split frequencies axis
+    frequencypoints = np.linspace(0, frequency, number_of_samples//2)  # split frequencies axis
     # plot the fourier for non negative frequencies (first half of signal)
-    plt.plot(frequencyPoints, abs(fouriervalues[0:number_of_samples // 2]))
+    plt.plot(frequencypoints, abs(fouriervalues[0:number_of_samples // 2]))
     plt.title("FFT of the signal")
     plt.xlabel('Frequency')
     plt.ylabel('Power of Frequency')
@@ -62,9 +62,9 @@ def spectrogram_plot(data: List[List], frequency: int) -> None:
     :return:
     """
     data = data.flatten()  # take the signal data
-    freq, t, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
+    freq, time, stft = signal.spectrogram(data, frequency, mode='complex')  # extract frequencies,
     # time and stfourrier
-    plt.pcolormesh(t, freq, abs(stft), cmap='magma', shading='gouraud')  # plot the spectrogramm
+    plt.pcolormesh(time, freq, abs(stft), cmap='magma', shading='gouraud')  # plot the spectrogramm
     plt.title('Spectrogram using STFT amplitude')
     plt.ylabel('Frequency [Hz]')
     plt.xlabel('Time [seconds]')

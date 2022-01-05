@@ -6,16 +6,16 @@ from data_processing import data_formatting
 from time_plot import time_plot
 
 # extract formatted signal list
-signal_list, FREQUENCY = data_formatting(r'voice_data.mat')
+signallist, FREQUENCY = data_formatting(r'voice_data.mat')
 # and sampling frequency
 i = 0 # index iterator
 # plot all signals in time domain
-for signal in signal_list:
+for signal in signallist:
     time_plot(signal, FREQUENCY, index=i)  # plot each signal
     i += 1
 
 i = 0 # index iterator
 # plot all fourier transforms in frequency domain
-for signal in signal_list:
+for signal in signallist:
     fourier_plot(signal, FREQUENCY, index=i)
     i += 1

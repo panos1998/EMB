@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.fft as fft
 
-fourier_transforms = []  # initialize fourier list
-frequencies = []  # initialize frequencies list
+fouriertransforms = []  # initialize fourier list
+frequencylist = []  # initialize frequencies list
 # function to plot a list of fourrier transform in frequency domain
 def fourier_plot(signal_data: List, frequency: int, index: int) -> None:
     """
@@ -17,11 +17,11 @@ def fourier_plot(signal_data: List, frequency: int, index: int) -> None:
     :return:
     """
     # calculate fourier transform of the input signal
-    fourier_transforms.append(fft.fft(signal_data))
+    fouriertransforms.append(fft.fft(signal_data))
     # calculate the corresponding fourier magnitude
-    fourier_mag = abs(fourier_transforms[index])  # of all coeffs
-    frequencies.append(np.linspace(0, frequency, len(signal_data) // 2)) # split frequencies axis
-    plt.plot(frequencies[index], fourier_mag[0:len(signal_data) // 2]) # plot the data
+    fourier_mag = abs(fouriertransforms[index])  # of all coeffs
+    frequencylist.append(np.linspace(0, frequency, len(signal_data) // 2)) # split frequencies axis
+    plt.plot(frequencylist[index], fourier_mag[0:len(signal_data) // 2]) # plot the data
     plt.title(f'Fourrier of signal: {index + 1}')
     plt.xlabel('frequency in Hz')
     plt.ylabel('Fourier magnitude ')

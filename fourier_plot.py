@@ -6,8 +6,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.fft as fft
 
-fourier_data = []  # initialize fourier list
-frequencies_of_partitions = []  # initialize frequencies list
+fourier_data = list(float)  # initialize fourier list
+frequencies_of_partitions = list(float)  # initialize frequencies list
 # function to plot a list of fourrier transform in frequency domain
 def fourier_plot(signal_data: List, frequency: int, index: int) -> None:
     """

@@ -1,5 +1,4 @@
-"""
-Ploting functions
+""" Ploting functions
 """
 from typing import List
 import numpy as np
@@ -42,10 +41,10 @@ def fourier_plot(data: List, frequency: int):
     number_of_samples = len(data)  # get data size
     data = data.flatten()  # get appropriate input
     # Fourier transform
-    Fourier_values = scipy.fft.fft(data) / number_of_samples  # calculate fourier transform
-    frequency_Points = np.linspace(0, frequency, number_of_samples//2)  # split frequencies axis
+    fouriervalues = scipy.fft.fft(data) / number_of_samples  # calculate fourier transform
+    frequencyPoints = np.linspace(0, frequency, number_of_samples//2)  # split frequencies axis
     # plot the fourier for non negative frequencies (first half of signal)
-    plt.plot(frequency_Points, abs(Fourier_values[0:number_of_samples // 2]))
+    plt.plot(frequencyPoints, abs(fouriervalues[0:number_of_samples // 2]))
     plt.title("FFT of the signal")
     plt.xlabel('Frequency')
     plt.ylabel('Power of Frequency')
